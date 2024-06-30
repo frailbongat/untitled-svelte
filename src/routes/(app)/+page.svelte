@@ -1,79 +1,64 @@
 <script lang="ts">
-	import CircleUser from 'lucide-svelte/icons/circle-user';
-	import Menu from 'lucide-svelte/icons/menu';
-	import Package2 from 'lucide-svelte/icons/package-2';
-	import Search from 'lucide-svelte/icons/search';
-
-	import { Button } from '$lib/components/ui/button/index.js';
-	import * as Card from '$lib/components/ui/card/index.js';
-	import { Checkbox } from '$lib/components/ui/checkbox/index.js';
-	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
-	import { Input } from '$lib/components/ui/input/index.js';
-	import * as Sheet from '$lib/components/ui/sheet/index.js';
+	import { Icons } from '$lib/components/icons/index.js';
+	import Mail from './examples/mail/(components)/mail.svelte';
+	import { accounts, mails } from './examples/mail/data.js';
+	import { Announcement, ExamplesNav } from '$lib/components/index.js';
+	import * as PageHeader from '$lib/components/page-header/index.js';
+	import { buttonVariants } from '$lib/components/ui/button/index.js';
+	import { siteConfig } from '$lib/config/site.js';
+	import { cn } from '$lib/utils.js';
+	//@ts-ignore
+	import MailLight from '$lib/img/examples/mail-light.png?enhanced';
+	//@ts-ignore
+	import MailDark from '$lib/img/examples/mail-dark.png?enhanced';
 </script>
 
-<div class="flex min-h-screen w-full flex-col">
-	<main
-		class="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 p-4 md:gap-8 md:p-10"
-	>
-		<div class="mx-auto grid w-full max-w-6xl gap-2">
-			<h1 class="text-3xl font-semibold">Settings</h1>
-		</div>
-		<div
-			class="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]"
-		>
-			<nav
-				class="grid gap-4 text-sm text-muted-foreground"
-				data-x-chunk-container="chunk-container after:right-0"
+<div class="container relative">
+	<PageHeader.Root class="pb-8">
+		<Announcement />
+		<PageHeader.Heading>Build your component library</PageHeader.Heading>
+		<PageHeader.Description class="text-muted-foreground">
+			Beautifully designed components that you can copy and paste into your apps. Accessible.
+			Customizable. Open Source.
+		</PageHeader.Description>
+		<p class="text-center text-sm text-orange-700 dark:text-orange-400">
+			This is an unofficial port of <a
+				href={siteConfig.links.shadGithub}
+				target="_blank"
+				rel="noreferrer"
+				class="font-medium underline underline-offset-4">shadcn/ui</a
 			>
-				<a href="##" class="font-semibold text-primary"> General </a>
-				<a href="##">Security</a>
-				<a href="##">Integrations</a>
-				<a href="##">Support</a>
-				<a href="##">Organizations</a>
-				<a href="##">Advanced</a>
-			</nav>
-			<div class="grid gap-6">
-				<Card.Root>
-					<Card.Header>
-						<Card.Title>Store Name</Card.Title>
-						<Card.Description>Used to identify your store in the marketplace.</Card.Description>
-					</Card.Header>
-					<Card.Content>
-						<form>
-							<Input placeholder="Store Name" />
-						</form>
-					</Card.Content>
-					<Card.Footer class="border-t px-6 py-4">
-						<Button>Save</Button>
-					</Card.Footer>
-				</Card.Root>
-				<Card.Root>
-					<Card.Header>
-						<Card.Title>Plugins Directory</Card.Title>
-						<Card.Description>
-							The directory within your project, in which your plugins are located.
-						</Card.Description>
-					</Card.Header>
-					<Card.Content>
-						<form class="flex flex-col gap-4">
-							<Input placeholder="Project Name" value="/content/plugins" />
-							<div class="flex items-center space-x-2">
-								<Checkbox id="include" checked={true} />
-								<label
-									for="include"
-									class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-								>
-									Allow administrators to change the directory.
-								</label>
-							</div>
-						</form>
-					</Card.Content>
-					<Card.Footer class="border-t px-6 py-4">
-						<Button>Save</Button>
-					</Card.Footer>
-				</Card.Root>
-			</div>
+			to Svelte, and is not affiliated with
+			<a
+				href={siteConfig.links.shadTwitter}
+				target="_blank"
+				rel="noreferrer"
+				class="font-medium underline underline-offset-4">@shadcn</a
+			>.
+		</p>
+		<div class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
+			<a href="/docs" class={cn(buttonVariants())}> Get Started </a>
+			<a
+				target="_blank"
+				rel="noreferrer"
+				href={siteConfig.links.github}
+				class={cn(buttonVariants({ variant: 'outline' }))}
+			>
+				<Icons.gitHub class="mr-2 h-4 w-4" />
+				GitHub
+			</a>
 		</div>
-	</main>
+	</PageHeader.Root>
+	<ExamplesNav class="[&>a:first-child]:text-primary" />
+	<section class="overflow-hidden rounded-lg border bg-background shadow-md md:hidden md:shadow-xl">
+		<div class="md:hidden">
+			<enhanced:img src={MailLight} alt="Mail" class="block dark:hidden" />
+			<enhanced:img src={MailDark} alt="Mail" class="hidden dark:block" />
+		</div>
+	</section>
+	<section class="hidden md:block">
+		<div class="overflow-hidden rounded-lg border bg-background shadow-lg">
+			<Mail {accounts} {mails} navCollapsedSize={4} />
+		</div>
+	</section>
 </div>

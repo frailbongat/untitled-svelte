@@ -11,9 +11,7 @@
 			<Sun
 				class="dark:-roate-90 h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:scale-0"
 			/>
-			<Moon
-				class="absolute h-[1.2rem] w-[1.2rem] rotate-[75deg] scale-0 transition-all dark:-scale-100"
-			/>
+			<Moon class="absolute h-[1.2rem] w-[1.2rem] scale-0 transition-all dark:scale-100" />
 			<span class="sr-only">Toggle theme</span>
 		</Button>
 	</DropdownMenu.Trigger>

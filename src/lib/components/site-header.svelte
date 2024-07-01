@@ -1,12 +1,4 @@
 <script lang="ts">
-	// import {
-	// 	CommandMenu,
-	// 	Icons,
-	// 	MainNav,
-	// 	MobileNav,
-	// 	ModeToggle,
-	// } from "$lib/components/docs/index.js";
-	// import { buttonVariants } from "$lib/registry/new-york/ui/button/index.js";
 	import { cn } from '$lib/utils.js';
 	import { buttonVariants } from './ui/button/index.js';
 	import CommandMenu from './command-menu.svelte';

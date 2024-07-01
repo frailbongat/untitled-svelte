@@ -2,17 +2,11 @@
 	import { ThemeWrapper, Announcement, ThemeCustomizer } from '$lib/components/index.js';
 	import * as PageHeader from '$lib/components/page-header/index.js';
 	import { CardsDefault } from '$lib/registry/default/example/cards/index.js';
-	import { config } from '$lib/stores/config.js';
-
-	// import { Announcement, ThemeCustomizer, ThemeWrapper } from "$lib/components/docs/index.js";
-	// import { CardsNewYork } from "$lib/registry/new-york/example/cards/index.js";
-	// import { CardsDefault } from "$lib/registry/default/example/cards/index.js";
-	// import { config } from "$lib/stores/index.js";
 </script>
 
 <svelte:head>
 	<style>
-		/* @import '/registry/themes.css'; */
+		@import '/registry/themes.css';
 		:root {
 			--vis-color0: var(--primary);
 			--vis-color1: #ffffff;
@@ -41,11 +35,6 @@
 		</PageHeader.Root>
 	</ThemeWrapper>
 	<ThemeWrapper>
-		{#if $config.style === 'new-york'}
-			<!-- <CardsNewYork /> -->
-			<CardsDefault />
-		{:else}
-			<CardsDefault />
-		{/if}
+		<CardsDefault />
 	</ThemeWrapper>
 </div>

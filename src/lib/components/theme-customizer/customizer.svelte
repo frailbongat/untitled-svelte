@@ -31,54 +31,6 @@
 	</div>
 	<div class="flex flex-1 flex-col space-y-4 md:space-y-6">
 		<div class="5 space-y-1">
-			<div class="flex w-full items-center">
-				<Label class="text-xs">Style</Label>
-				<Popover.Root>
-					<Popover.Trigger>
-						<Info class="ml-1 h-3 w-3" />
-						<span class="sr-only">About styles</span>
-					</Popover.Trigger>
-					<Popover.Content
-						class="space-y-3 rounded-[0.5rem] text-sm"
-						align="start"
-						side="right"
-						sideOffset={-20}
-					>
-						<p class="font-medium">
-							What is the difference between the New York and Default style?
-						</p>
-						<p>A style comes with its own set of components, animations, icons and more.</p>
-						<p>
-							The <span class="font-medium">Default</span> style has larger inputs, uses lucide-svelte
-							for icons.
-						</p>
-						<p>
-							The <span class="font-medium">New York</span> style ships with smaller buttons and cards
-							with shadows. It uses icons from Radix Icons.
-						</p>
-					</Popover.Content>
-				</Popover.Root>
-			</div>
-			<div class="grid grid-cols-3 gap-2">
-				<Button
-					variant="outline"
-					size="sm"
-					on:click={() => ($config.style = 'default')}
-					class={cn($config.style === 'default' && 'border-2 border-primary')}
-				>
-					Default
-				</Button>
-				<Button
-					variant="outline"
-					size="sm"
-					on:click={() => ($config.style = 'new-york')}
-					class={cn($config.style === 'new-york' && 'border-2 border-primary')}
-				>
-					New York
-				</Button>
-			</div>
-		</div>
-		<div class="5 space-y-1">
 			<Label class="text-xs">Color</Label>
 			<div class="grid grid-cols-3 gap-2">
 				{#each themes as theme (theme.name)}
@@ -107,7 +59,7 @@
 		<div class="space-y-1.5">
 			<Label class="text-xs">Radius</Label>
 			<div class="grid grid-cols-5 gap-2">
-				{#each ['0', '0.3', '0.5', '0.75', '1.0'] as value, _ (value)}
+				{#each ['0', '0.3', '0.5', '0.75', '1.0', '1.4'] as value, _ (value)}
 					{@const valueFloat = Number.parseFloat(value)}
 					<Button
 						variant="outline"

@@ -69,8 +69,8 @@
 }
 @layer base {
 	@font-face {
-		font-family: 'geist-sans';
-		src: url('/fonts/Geist/geist.woff2') format('woff2');
+		font-family: "geist-sans";
+		src: url("/fonts/Geist/geist.woff2") format("woff2");
 		font-display: swap;
 	}
 
@@ -146,7 +146,7 @@
 	}
 
 	.chunk-container::after {
-		content: '';
+		content: "";
 		@apply absolute -inset-4 rounded-xl border shadow-xl;
 	}
 }
@@ -161,25 +161,25 @@
 	@apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm;
 }
 
-[data-theme='default'] {
+[data-theme="default"] {
 	display: flex;
 }
 
-[data-style='new-york'] [data-style='default'] {
+[data-style="new-york"] [data-style="default"] {
 	display: none;
 }
 
-[data-style='default'] [data-style='default'] {
+[data-style="default"] [data-style="default"] {
 	display: flex;
 	flex-direction: column;
 }
 
-[data-style='new-york'] [data-style='new-york'] {
+[data-style="new-york"] [data-style="new-york"] {
 	display: flex;
 	flex-direction: column;
 }
 
-[data-style='default'] [data-style='new-york'] {
+[data-style="default"] [data-style="new-york"] {
 	display: none;
 }
 
@@ -273,7 +273,7 @@
 }
 
 .vis-xy-container {
-	--vis-tooltip-padding: '0px';
-	--vis-tooltip-background-color: 'transparent';
-	--vis-tooltip-border-color: 'transparent';
+	--vis-tooltip-padding: "0px";
+	--vis-tooltip-background-color: "transparent";
+	--vis-tooltip-border-color: "transparent";
 }

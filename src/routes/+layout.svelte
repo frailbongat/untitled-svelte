@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { ModeWatcher } from 'mode-watcher';
-	import '../app.css';
+	import '../styles/globals.css';
+	import { updateTheme } from '$lib/utils.js';
+	import { config } from '$lib/stores/index.js';
+	import { page } from '$app/stores';
+
+	$: updateTheme($config.theme, $page.url.pathname);
 </script>
 
 <ModeWatcher />
